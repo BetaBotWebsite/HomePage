@@ -28,7 +28,7 @@ function handleClick(index){
 $(document).ready(function () {
     let pages = []
     let itemPerPage = 8
-    $.getJSON('http://5ce7f37d9f2c390014dba3e2.mockapi.io/HomePage', function (json) {
+    $.getJSON('https://betabotwebsite.github.io/Data/Papers.json', function (json) {
         for (i = 0; i < json.length / itemPerPage; i++) {
             let page = []
             for (j = 0 + i * itemPerPage; j < (i + 1) * itemPerPage; j++) {
@@ -42,7 +42,7 @@ $(document).ready(function () {
         pages.forEach((page,index) => {
             $(".Content").append("<div class=\"Page-"+index+" page d-none\">"+"</div>")
             page.forEach((item) => {
-                $(".Page-"+index).append(contentFunction(item.type,item.title,"https://www.google.com/"))
+                $(".Page-"+index).append(contentFunction(item.type,item.title,item.link))
             })
             $(".pagination").append(pageFunction(index))
         })
